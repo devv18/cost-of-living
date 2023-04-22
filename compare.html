@@ -1,0 +1,101 @@
+<html>
+    <head>
+<style>
+        table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+  h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+</style>
+    </head>
+    <body>
+               
+        <h1>comaparison between {{country1}} and {{country2}}</h1>
+        <table>
+            <tr>
+                <th>cost of living</th>
+                <th>{{country1}}</th>
+                <th>{{country}}</th>
+            </tr>
+            <tr>
+                <td>total rent of one person</td>
+                <td>{{data_obj1.0}}</td>
+                <td>{{data_obj2.0}}</td>
+            </tr>
+            <tr>
+                <td>family rent </td>
+                <td>{{data_obj1.1}}</td>
+                <td>{{data_obj2.1}}</td>
+            </tr>
+            <tr>
+                <td>food expenses of one person</td>
+                <td>{{data_obj1.6}}</td>
+                <td>{{data_obj2.6}}</td>
+            </tr>
+            <tr>
+                <td>food expenses of family</td>
+                <td>{{data_obj1.7}}</td>
+                <td>{{data_obj2.7}}</td>
+            </tr>
+            <tr>
+                <td>transport exepenses single person</td>
+                <td>{{data_obj1.8}}</td>
+                <td>{{data_obj2.8}}</td>
+            </tr>
+            <tr>
+                <td>transport exepenes of family</td>
+                <td>{{data_obj1.9}}</td>
+                <td>{{data_obj2.9}}</td>
+            </tr>
+            <tr>
+                <td>monthly salary</td>
+                <td>{{data_obj1.10}}</td>
+                <td>{{data_obj2.10}}</td>
+            </tr>
+            <tr>
+                <td>gdp per captia</td>
+                <td>{{data_obj1.11}}</td>
+                <td>{{data_obj2.11}}</td>
+            </tr>
+            <tr>
+                <td>human freedom index</td>
+                <td>{{data_obj1.12}}</td>
+                <td>{{data_obj2.12}}</td>
+            </tr>
+            <tr>
+                <td>Life expectancy	</td>
+                <td>{{data_obj1.13}}</td>
+                <td>{{data_obj2.13}}</td>
+            </tr>
+            <tr>
+                <td>population</td>
+                <td>{{data_obj1.15}}</td>
+                <td>{{data_obj2.15}}</td>
+        </table>
+    </body>
+</html>

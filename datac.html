@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Data </title>
+    <style>
+        table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+  h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+    </style>
+</head>
+<body>
+    <h1>cost of living >>> {{country}}</h1>
+    <table>
+        <tr>
+            <th>cost of living</th>
+            <th>one person </th>
+            <th>4 person</th>
+        </tr>
+        <tr>
+            <td>💰 Total with rent</td>
+            <td>{{data_obj.0}}</td>
+            <td>{{data_obj.1}}</td>
+        </tr>
+        <tr>
+            <td>without rent</td>
+            <td>{{data_obj.2}}</td>
+            <td>{{data_obj.3}}</td>
+        </tr>
+        <tr>
+            <td>rent & utilities</td>
+            <td>{{data_obj.4}}</td>
+            <td>{{data_obj.5}}</td>
+        </tr>
+        <tr>
+            <td>food</td>
+            <td>{{data_obj.6}}</td>
+            <td>{{data_obj.7}}</td>
+        </tr>
+        <tr>
+            <td>transport</td>
+            <td>{{data_obj.8}}</td>
+            <td>{{data_obj.9}}</td>
+        </tr>
+        <tr>
+            <td> Monthly salary after tax</td>
+            <td colspan="2">{{data_obj.10}}</td>
+        </tr>
+        <tr>
+            <td>gdp per captia</td>
+            <td colspan="2">{{data_obj.11}}</td>
+        </tr>
+        <tr>
+            <td>human freedom index</td>
+            <td colspan="2">{{data_obj.12}}</td>
+        </tr>
+        <tr>
+            <td>Life expectancy	</td>
+            <td colspan="2">{{data_obj.13}}</td>
+        </tr>
+        <tr>
+            <td>english speaking</td>
+            <td colspan="2">{{data_obj.14}}</td>
+        </tr>
+        <tr>
+            <td>population</td>
+            <td colspan="2">{{data_obj.15}}</td>
+        </tr>
+    </table>
+    <p>best places to visit in {{country}}<a href="{{links}}">click here</a></p>
+</body>
+</html>

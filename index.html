@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <style>
+        table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+  h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+    </style>
+  </head>
+  
+  <body>
+    <div class="main">
+  <div class="bars">
+      <h1>COMAPRE COST OF LIVING</h1>
+  <form   method="post" action="go/">
+    {% csrf_token %}
+
+      <input type="text"  placeholder="city or country" name="country1">
+      
+    
+  
+      <input type="text"  placeholder="comapre(optional)" name="country2">
+      <button type="submit">go</button>
+  </form>
+  </div>
+    <table id="my-table">
+      <thead>
+        <tr>
+          <th>country</th>
+          <th>cost</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <script>
+const data=[['china', '$754'], ['india', '$420'], ['United States', '$2213'], ['Indonesia', '$559'], ['Pakistan', '$278'], ['Brazil', '$675'], ['Nigeria', '$1019'], ['Bangladesh', '$421'], ['Russia', '$787'], ['Japan', '$1200'], ['Mexico', '$786'], ['Philippines', '$611'], ['Ethiopia', '$675'], ['Vietnam', '$643'], ['Egypt', '$321'], ['DR Congo', '$1053'], ['Iran', '$753'], ['Turkey', '$540'], ['Germany', '$1442'], ['France', '$1451'], ['United Kingdom', '$1818'], ['Thailand', '$876'], ['Italy', '$1320'], ['South Africa', '$832'], ['Tanzania', '$862'], ['Myanmar', '$880'], ['South Korea', '$1117'], ['Colombia', '$546'], ['Kenya', '$653'], ['Spain', '$1246'], ['Argentina', '$604'], ['Uganda', '$607'], ['Algeria', '$439'], ['Ukraine', '$482'], ['Sudan', '$660'], ['Poland', '$912'], ['Iraq', '$679'], ['Afghanistan', '$344'], ['Morocco', '$586'], ['Canada', '$1826'], ['Uzbekistan', '$567'], ['Saudi Arabia', '$1111'], ['Angola', '$952'], ['Malaysia', '$629'], ['Nepal', '$379'], ['Mozambique', '$1045'], ['Peru', '$693'], ['Venezuela', '$770'], ['Ghana', '$445'], ['Yemen', '$531'], ['Madagascar', '$565'], ['North Korea', '$1538'], ['Australia', '$2104'], ['Ivory Coast', '$892'], ['Cameroon', '$852'], ['Taiwan', '$989'], ['Niger', '$931'], ['Sri Lanka', '$344'], ['Burkina Faso', '$690'], ['Mali', '$533'], ['Chile', '$1028'], ['Romania', '$713'], ['Kazakhstan', '$552'], ['Malawi', '$576'], ['Syria', '$518'], ['Ecuador', '$785'], ['Netherlands', '$1780'], ['Guatemala', '$838'], ['Zambia', '$919'], ['Senegal', '$1068'], ['Cambodia', '$807'], ['Chad', '$518'], ['Zimbabwe', '$863'], ['Guinea', '$932'], ['South Sudan', '$506'], ['Rwanda', '$684'], ['Belgium', '$1418'], ['Tunisia', '$439'], ['Burundi', '$484'], ['Cuba', '$1199'], ['Benin', '$709'], ['Bolivia', '$693'], ['Somalia', '$771'], ['Haiti', '$525'], ['Czech Republic', '$1168'], ['Greece', '$1020'], ['Jordan', '$836'], ['Sweden', '$1385'], ['Dominican Republic', '$814'], ['Portugal', '$1073'], ['Azerbaijan', '$548'], ['United Arab Emirates', '$1498'], ['Hungary', '$860'], ['Belarus', '$579'], ['Israel', '$1786'], ['Austria', '$1549'], ['Papua New Guinea', '$525'], ['Tajikistan', '$538'], ['Switzerland', '$2604'], ['Honduras', '$798'], ['Togo', '$667'], ['Sierra Leone', '$729'], ['Serbia', '$835'], ['Bulgaria', '$739'], ['Laos', '$836'], ['Paraguay', '$561'], ['Kyrgyzstan', '$488'], ['Libya', '$432'], ['Turkmenistan', '$1279'], ['Lebanon', '$1071'], ['Singapore', '$3280'], ['Denmark', '$1809'], ['El Salvador', '$876'], ['Finland', '$1503'], ['Slovakia', '$1007'], ['Norway', '$1844'], ['Congo', '$554'], ['Palestine', '$934'], ['Liberia', '$520'], ['Costa Rica', '$1000'], ['Nicaragua', '$614'], ['Ireland', '$2198'], ['New Zealand', '$1718'], ['Oman', '$1136'], ['Central African Republic', '$513'], ['Mauritania', '$735'], ['Kuwait', '$1383'], ['Panama', '$1112'], ['Croatia', '$1035'], ['Bosnia and Herzegovina', '$611'], ['Georgia', '$1037'], ['Eritrea', '$516'], ['Uruguay', '$1143'], ['Mongolia', '$523'], ['Armenia', '$1071'], ['Jamaica', '$924'], ['Albania', '$654'], ['Lithuania', '$1007'], ['Gambia', '$490'], ['Qatar', '$1960'], ['Moldova', '$547'], ['Namibia', '$795'], ['Botswana', '$631'], ['Lesotho', '$614'], ['Slovenia', '$1191'], ['Gabon', '$632'], ['Latvia', '$972'], ['Guinea-Bissau', '$752'], ['North Macedonia', '$576'], ['Bahrain', '$1265'], ['Trinidad and Tobago', '$993'], ['Estonia', '$1117'], ['East Timor', '$522'], ['Equatorial Guinea', '$869'], ['Mauritius', '$690'], ['Eswatini', '$570'], ['Cyprus', '$1410'], ['Djibouti', '$544'], ['Fiji', '$747'], ['Comoros', '$510'], ['Bhutan', '$411'], ['Guyana', '$834'], ['Luxembourg', '$2167'], ['Montenegro', '$775'], ['Solomon Islands', '$1508'], ['Suriname', '$730'], ['Cape Verde', '$721'], ['Malta', '$1340'], ['Maldives', '$1222'], ['Brunei', '$1038'], ['Bahamas', '$1981'], ['Belize', '$847'], ['Iceland', '$2149'], ['Barbados', '$1292'], ['Vanuatu', '$2114'], ['Sao Tome and Principe', '$864'], ['Samoa', '$1014'], ['Saint Lucia', '$1019'], ['Curacao', '$1320'], ['Kiribati', '$500'], ['Saint Vincent', '$881'], ['Tonga', '$958'], ['Grenada', '$991'], ['Seychelles', '$1546'], ['Antigua and Barbuda', '$1551'], ['Andorra', '$1209'], ['Dominica', '$997'], ['Cayman Islands', '$3090'], ['Saint Kitts and Nevis', '$1191'], ['Marshall Islands', '$1549'], ['Monaco', '$3761'], ['Liechtenstein', '$2117'], ['San Marino', '$1103'], ['Palau', '$1152'], ['Nauru', '$622'], ['Tuvalu', '$558'], ['Vatican', '$813']];
+
+
+const tableBody = document.querySelector('#my-table tbody');
+
+data.forEach(rowData => {
+  const row = document.createElement('tr');
+  rowData.forEach((cellData, cellIndex) => {
+    const cell = document.createElement('td');
+    if (cellIndex === 0) { // check if it's the country cell
+      const link = document.createElement('a');
+      link.textContent = cellData;
+      link.setAttribute('href', '{% url "show" %}?country=' + encodeURIComponent(cellData));
+
+// replace with your Django view's URL
+      cell.appendChild(link);
+    } else {
+      cell.textContent = cellData;
+      
+    }
+    row.appendChild(cell);
+  });
+  tableBody.appendChild(row);
+});
+
+
+          
+    </script>
+  </body>
+</html>
